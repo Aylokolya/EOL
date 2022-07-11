@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <context id="mysqlContext" targetRuntime="MyBatis3" defaultModelType="flat">
+  	<commentGenerator>
+  		<property name="suppressData" value="true" />
+  		<property name="suppressAllComments" value="true" />
+  	</commentGenerator>
+  	
+  	
+    <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/online?useSSL=false&amp;serverTimezone=UTC&amp;characterEncoding=utf-8" 
+    	driverClass="com.mysql.cj.jdbc.Driver" password="123456" userId="root" />
+    	
+    <javaTypeResolver>
+    	<property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+    
+    <javaModelGenerator targetPackage="com.demo.entity" targetProject="online/src/main/java" >
+    	<property name="enableSubPackages" value="true" />
+    	<property name="trimStrings" value="true" />
+    </javaModelGenerator>
+    
+    <sqlMapGenerator targetPackage="com.demo.mapper" targetProject="online/src/main/java">
+    	<property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+    
+    <javaClientGenerator targetPackage="com.demo.dao" targetProject="online/src/main/java" type="XMLMAPPER" >
+    	<property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+    
+    <!--
+    <table tableName="answersheeta" domainObjectName="AnswerSheetAPO" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="answersheetb" domainObjectName="AnswerSheetBPO" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="answersheetc" domainObjectName="AnswerSheetCPO" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="exam" domainObjectName="ExamPO" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="examlibrary" domainObjectName="ExamLibraryPO" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="exammajor" domainObjectName="ExamMajorPO" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="examqtype" domainObjectName="ExamQTypePO" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="examquestion" domainObjectName="ExamQuestionPO" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="examstudent" domainObjectName="ExamStudentPO" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="library" domainObjectName="LibraryPO" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="libraryquestion" domainObjectName="LibraryQuestionPO" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="major" domainObjectName="MajorPO" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="manager" domainObjectName="ManagerPO" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="qtype" domainObjectName="QTypePO" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="questiona" domainObjectName="QuestionAPO" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    -->
+    
+    <table tableName="admin" domainObjectName="Admin" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="major" domainObjectName="Major" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="question" domainObjectName="Question" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="item" domainObjectName="Item" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    <table tableName="type" domainObjectName="Type" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+    
+    <table tableName="t_user" domainObjectName="User" enableCountByExample="true" enableUpdateByExample="true" 
+    	enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"> 
+    </table>
+    
+  </context>
+</generatorConfiguration>

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -42,6 +43,8 @@ public class LoginController {
 			} else {
 				Cookie accountType = new Cookie("accountType","Admin");
 				response.addCookie(accountType);
+				admin.setPwd("");
+				modelAndView.addObject("admin",admin);		//存入无密码的admin信息
 				modelAndView.setViewName("AdminMain");		//管理员主页
 			}
 		} else if(id == 1) {
@@ -53,6 +56,8 @@ public class LoginController {
 			} else {
 				Cookie accountType = new Cookie("accountType","User");
 				response.addCookie(accountType);
+				user.setPwd("");
+				modelAndView.addObject("user", user);			//存入无密码的user信息
 				modelAndView.setViewName("UserMain");		//用户主页
 			}
 		}

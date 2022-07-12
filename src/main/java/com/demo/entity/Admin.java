@@ -7,7 +7,9 @@ public class Admin {
 
     private String pwd;
 
-    public Integer getId() {
+    
+
+	public Integer getId() {
         return id;
     }
 

@@ -18,9 +18,12 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	/**新建用户
+	 * @param user 用户实体
+	 * @return 包含表中插入id的用户实体
+	 */
 	@PostMapping("/users")
 	public User createUser(User user) {
-		
 		return  userService.insertNewUser(user);
 	}
 	

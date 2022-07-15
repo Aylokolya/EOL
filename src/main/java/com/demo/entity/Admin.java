@@ -32,4 +32,11 @@ public class Admin {
     public void setPwd(String pwd) {
         this.pwd = pwd == null ? null : pwd.trim();
     }
+
+	@Override
+	public String toString() {
+		return "Admin [id=" + id + ", tno=" + tno + ", pwd=" + pwd + "]";
+	}
+    
+    
 }

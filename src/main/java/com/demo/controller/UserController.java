@@ -27,11 +27,8 @@ public class UserController {
 	 * @return 包含表中插入id的用户实体
 	 */
 	@PostMapping("/users")
-	public User createUser(User user) {
-		System.out.println(user.getId());
-		System.out.println(user.getSno());
-		System.out.println(user.getPwd());
-		System.out.println(user.getName());
+	public User createUser(@RequestBody User user) {
+		
 		return  userService.insertNewUser(user);
 	}
 	

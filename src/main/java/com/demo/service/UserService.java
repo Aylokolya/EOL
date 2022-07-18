@@ -28,5 +28,14 @@ public interface UserService {
 	 * @return 用户记录
 	 */
 	public User auth(String sno,String pwd);
+	
+	/**查找用户
+	 * @param id
+	 * @return用户信息
+	 */
+	public User findUserById(int id);
+	
+	public boolean updateUser(User user);
 
+	public boolean deleteUser(int id);
 }

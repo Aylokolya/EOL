@@ -99,7 +99,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.demo.entity.Question">
+  <insert id="insert" parameterType="com.demo.entity.Question" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
     insert into question (id, content, tid, 
       mid)
     values (#{id,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, #{tid,jdbcType=INTEGER}, 

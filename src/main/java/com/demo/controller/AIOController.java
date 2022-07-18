@@ -4,15 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.demo.entity.Admin;
 import com.demo.entity.FullQuestion;
 import com.demo.entity.Question;
 import com.demo.entity.User;
@@ -53,9 +60,11 @@ public class AIOController {
 	 * @return 有id用户数据
 	 */
 	@PostMapping("/users")
-	public User createUser(User user) {
+	public User createUser(@RequestBody User user) {
+		System.out.println(user);
+		System.out.println(user.getName());
 		User newUser = user;
-		newUser.setId(10001);
+		newUser.setId(1);
 		return newUser;
 	}
 	
@@ -155,6 +164,50 @@ public class AIOController {
 			list.add(GenerateData.generateQuestion());
 		}
 		return list;
+	}
+	
+	@PostMapping("/login")
+	public ResultJson auth(String account,String password, HttpServletResponse response, @RequestParam int id) {
+		ResultJson resultJson = new ResultJson();
+		System.out.println("enter auth");
+		if(id == 0) {
+			System.out.println("enter admin");
+			System.out.println(account);
+			System.out.println(password);
+			//管理员验证:10000,123456
+			if(account.contentEquals("10000")&&password.contentEquals(DigestUtils.md5DigestAsHex("123456".getBytes()))) {
+				System.out.println("correct");
+				resultJson.setCode(200);
+				resultJson.setMsg("Admin");
+				Admin admin = new Admin();
+				admin.setId(1);
+				admin.setTno("10000");
+				admin.setPwd("");
+				resultJson.setData(admin);
+				return resultJson;
+			}
+		} else if(id == 1) {
+			System.out.println("enter user");
+			System.out.println(account);
+			System.out.println(password);
+			//用户验证，10000,123456
+			if(account.contentEquals("10000")&&password.contentEquals(DigestUtils.md5DigestAsHex("123456".getBytes()))) {
+				System.out.println("correct");
+				User user = new User();
+				user.setId(1);
+				user.setSno("10000");
+				user.setName("赵前");
+				user.setPwd("");
+				resultJson.setCode(200);
+				resultJson.setMsg("User");
+				resultJson.setData(user);
+				return resultJson;
+			}
+		}
+		resultJson.setCode(500);
+		resultJson.setData("");
+		resultJson.setMsg("用户名或密码错误");
+		return resultJson;
 	}
 
 }

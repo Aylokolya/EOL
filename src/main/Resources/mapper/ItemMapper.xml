@@ -101,7 +101,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.demo.entity.Item">
+  <insert id="insert" parameterType="com.demo.entity.Item" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
     insert into item (id, qid, itema, 
       itemb, itemc, itemd
       )

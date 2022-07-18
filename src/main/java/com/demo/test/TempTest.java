@@ -34,27 +34,28 @@ public class TempTest {
 			sqlSession.close();
 	}
 	
-	@Test
-	public void testGenerator() {
-		User user = GenerateData.generateUser();
-		
-		System.out.println(user.getSno());
-	}
+//	@Test
+//	public void testGenerator() {
+//		User user = GenerateData.generateUser();
+//		
+//		System.out.println(user.getPwd());
+//	}
 	
 	@Test
 	public void testMapper() {
 		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-		User user = GenerateData.generateUser();
-		int i = userMapper.insert(user);
+		User user = new User();
+		user.setId(1);
+		user.setSno("10001");
+		System.out.println(userMapper.insert(user));
 		sqlSession.commit();
 		System.out.println(user.getId());
-		System.out.println(i);
 	}
 	
 	@Test
 	public void testController() {
-		UserController userController = new UserController();
-		System.out.println(userController.findAllUsers());
+//		UserController userController = new UserController();
+		//System.out.println(userController.findAllUsers());
 		
 	}
 

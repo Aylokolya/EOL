@@ -40,4 +40,11 @@ public class User {
     public void setPwd(String pwd) {
         this.pwd = pwd == null ? null : pwd.trim();
     }
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", sno=" + sno + ", name=" + name + ", pwd=" + pwd + "]";
+	}
+    
+ 	
 }

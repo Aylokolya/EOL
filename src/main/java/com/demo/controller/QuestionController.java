@@ -1,5 +1,6 @@
 package com.demo.controller;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,9 @@ public class QuestionController {
 	
 	@GetMapping("/questions")
 	public List<Question> getAllQuestions(){
-		
-		return questionService.findAll();
+		List<Question> list = questionService.findAll();
+		Collections.reverse(list);
+		return list;
 		
 	}
 	
@@ -36,7 +38,8 @@ public class QuestionController {
 	
 	@PutMapping("/questions")
 	public boolean updateQuestion(@RequestBody FullQuestion fullQuestion) {
-		return updateQuestion(fullQuestion);
+		
+		return questionService.updateQuestion(fullQuestion);
 	}
 	
 	@PostMapping("/questions")

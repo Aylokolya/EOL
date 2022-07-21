@@ -47,10 +47,10 @@ public class QuestionServiceImpl implements QuestionService{
 				if(questionMapper.deleteByPrimaryKey(id)==1) {
 					return true;
 				}
-			} else {
-				if(questionMapper.deleteByPrimaryKey(id)==1) {
-					return true;
-				}
+			} 
+		} else {
+			if(questionMapper.deleteByPrimaryKey(id)==1) {
+				return true;
 			}
 		}
 		return false;
@@ -58,20 +58,26 @@ public class QuestionServiceImpl implements QuestionService{
 
 	@Override
 	public boolean updateQuestion(FullQuestion fullQuestion) {
+		System.out.println("test updateQuestion");
+		System.out.println(fullQuestion);
 		Question question = fullQuestion.getQuestion();
 		Type type = fullQuestion.getType();
 		Item item = fullQuestion.getItem();
 		if(type.getName().contentEquals("单选")||type.getName().contentEquals("多选")) {
-			if(itemMapper.updateByPrimaryKeySelective(item)==1) {
-				if(questionMapper.updateByPrimaryKeySelective(question)==1) {
+			System.out.println(1);
+			if(itemMapper.updateByPrimaryKeySelective(item)==1&&questionMapper.updateByPrimaryKeySelective(question)==1) {
+				
+					System.out.println(2);
 					return true;
-				}
+				
 			}
 		} else {
 			if(questionMapper.updateByPrimaryKeySelective(question)==1) {
+				System.out.println(3);
 				return true;
 			}
 		}
+		System.out.println(4);
 		return false;
 	}
 
@@ -84,6 +90,8 @@ public class QuestionServiceImpl implements QuestionService{
 			questionMapper.insert(question);
 			item.setQid(question.getId());
 			itemMapper.insert(item);
+		}else {
+			questionMapper.insert(question);
 		}
 		fullQuestion.setQuestion(question);
 		fullQuestion.setItem(item);

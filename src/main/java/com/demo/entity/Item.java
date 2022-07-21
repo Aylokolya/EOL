@@ -13,7 +13,14 @@ public class Item {
 
     private String itemd;
 
-    public Integer getId() {
+    
+    @Override
+	public String toString() {
+		return "Item [id=" + id + ", qid=" + qid + ", itema=" + itema + ", itemb=" + itemb + ", itemc=" + itemc
+				+ ", itemd=" + itemd + "]";
+	}
+
+	public Integer getId() {
         return id;
     }
 

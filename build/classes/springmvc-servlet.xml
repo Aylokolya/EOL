@@ -40,13 +40,17 @@
     	</mvc:interceptor>
     </mvc:interceptors>
     
-
+    <!-- 
+	<mvc:resources location="/assets/" mapping="/assets/**"></mvc:resources>
+	<mvc:resources location="/index.html" mapping="/index.html"></mvc:resources>
+	-->
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		
         
         <property name="prefix" value="/WEB-INF/pages/"/>
-       
+       <!-- 
         <property name="suffix" value=".jsp"/>
+        -->
     </bean>
 </beans>

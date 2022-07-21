@@ -63,6 +63,7 @@ public class UserController {
 	
 	@PutMapping("/users/{id}")
 	public boolean changeUserPwd(@PathVariable int id,String sno,String oldPwd,String newPwd) {
+		
 		User user = userService.auth(sno, oldPwd);
 		if(user!=null) {
 			user.setPwd(newPwd);

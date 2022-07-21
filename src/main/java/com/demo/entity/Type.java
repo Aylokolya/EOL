@@ -5,7 +5,12 @@ public class Type {
 
     private String name;
 
-    public Integer getId() {
+    @Override
+	public String toString() {
+		return "Type [id=" + id + ", name=" + name + "]";
+	}
+
+	public Integer getId() {
         return id;
     }
 

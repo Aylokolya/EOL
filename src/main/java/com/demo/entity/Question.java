@@ -9,7 +9,12 @@ public class Question {
 
     private Integer mid;
 
-    public Integer getId() {
+    @Override
+	public String toString() {
+		return "Question [id=" + id + ", content=" + content + ", tid=" + tid + ", mid=" + mid + "]";
+	}
+
+	public Integer getId() {
         return id;
     }
 

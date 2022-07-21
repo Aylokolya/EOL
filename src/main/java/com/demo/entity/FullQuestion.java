@@ -12,6 +12,10 @@ public class FullQuestion {
 	private Type type;
 	private Item item;
 	
+	@Override
+	public String toString() {
+		return "FullQuestion [question=" + question + ", type=" + type + ", item=" + item + "]";
+	}
 	public Question getQuestion() {
 		return question;
 	}
